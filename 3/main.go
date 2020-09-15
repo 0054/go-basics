@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+	"math"
+)
 
 func main() {
 	var list1 = [3]string{
@@ -25,4 +29,29 @@ func main() {
 	for i := 0; i <= 10; i++ {
 		fmt.Println(i)
 	}
+
+	var slice1 = []int{}
+	slice1 = append(slice1, 1, 3, 4, 5)
+	fmt.Println(slice1)
+
+	a(20)
 }
+
+func a(n int) error {
+	if n <= 0 {
+		return errors.New("n must be positive")
+	}
+	for i := 1; i <= n; i++ {
+		fmt.Println(math.Pow(2, float64(i)))
+	}
+	return nil
+}
+
+// func b(arr []int) []int {
+// 	l := len(arr)
+// 	res := []int{}
+// 	for index, item := range arr {
+// 		res[
+// 	}
+// 	return res
+// }
