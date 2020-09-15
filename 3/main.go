@@ -51,7 +51,7 @@ func a(n int) error {
 // 	l := len(arr)
 // 	res := []int{}
 // 	for index, item := range arr {
-// 		res[
+// 		append(res, item)
 // 	}
 // 	return res
 // }
