@@ -7,8 +7,15 @@ type testStruct struct {
 	bar int
 }
 
-func (s testStruct) getInfo() string {
-	return fmt.Sprintf("foo %s bar %d\n", s.foo, s.bar)
+func newTestStruct(foo string, bar int) testStruct {
+	return testStruct{
+		foo: foo,
+		bar: bar,
+	}
+}
+
+func (t testStruct) getInfo() string {
+	return fmt.Sprintf("foo %s bar %d\n", t.foo, t.bar)
 }
 
 func main() {
@@ -37,7 +44,10 @@ func main() {
 		bar: 123,
 	}
 
+	ts2 := newTestStruct("qwerty", 12345)
+
 	fmt.Printf("%s", ts1.getInfo())
+	fmt.Printf("%s", ts2.getInfo())
 	fmt.Printf("1 customer name: %s sex: %s, age: %d, corp: %s\n", customer1.name, customer1.sex, customer1.age, customer1.corp)
 	fmt.Printf("%+v\n", customer1)
 
