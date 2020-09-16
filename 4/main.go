@@ -20,7 +20,7 @@ func (t testStruct) getInfo() string {
 
 func main() {
 	map1 := map[string]string{
-		"name": "john",
+		"name": "Max",
 		"age":  "12",
 		"job":  "programmer",
 	}
