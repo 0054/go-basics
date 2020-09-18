@@ -18,7 +18,21 @@ func (t testStruct) getInfo() string {
 	return fmt.Sprintf("foo %s bar %d\n", t.foo, t.bar)
 }
 
+func setBar(t *testStruct, bar int) {
+	t.bar = bar
+}
+
+type age int
+
+func (a age) isAdult() bool {
+	return a >= 18
+}
+
 func main() {
+
+	myAge := age(17)
+	fmt.Println("is adult ? ", myAge.isAdult())
+
 	map1 := map[string]string{
 		"name": "Max",
 		"age":  "12",
@@ -47,6 +61,8 @@ func main() {
 	ts2 := newTestStruct("qwerty", 12345)
 
 	fmt.Printf("%s", ts1.getInfo())
+	fmt.Printf("%s", ts2.getInfo())
+	setBar(&ts2, 2222222222222)
 	fmt.Printf("%s", ts2.getInfo())
 	fmt.Printf("1 customer name: %s sex: %s, age: %d, corp: %s\n", customer1.name, customer1.sex, customer1.age, customer1.corp)
 	fmt.Printf("%+v\n", customer1)
