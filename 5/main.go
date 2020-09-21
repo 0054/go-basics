@@ -46,8 +46,36 @@ func (s *memoryStorage) delete(id int) error {
 	return nil
 }
 
+func printType(value interface{}) {
+	if _, ok := value.(int); ok {
+		fmt.Println("тип аргумента int")
+	} else if _, ok := value.(string); ok {
+		fmt.Println("тип аргумента string")
+	} else {
+		fmt.Println("тип аргумента отличный от int и string")
+	}
+}
+func printType2(value interface{}) {
+	switch value.(type) {
+	case int:
+		fmt.Println("тип аргумента int")
+	case string:
+		fmt.Println("тип аргумента string")
+	default:
+		fmt.Println("тип аргумента отличный от int и string")
+	}
+}
+
 func main() {
 	var s storage
+
+	printType(3)
+	printType("adsada")
+	printType([]string{"foo", "bar"})
+
+	printType2(3)
+	printType2("adsada")
+	printType2([]string{"foo", "bar"})
 
 	fmt.Println("s == nil", s == nil)
 	fmt.Printf("type of s: %T\n", s)
